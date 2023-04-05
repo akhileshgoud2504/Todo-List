@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import TodoList from '../components/TodoList.vue'
+import HomeScreen from '../view/HomeScreen.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: TodoList
+    component: HomeScreen
   }
 ]
 
