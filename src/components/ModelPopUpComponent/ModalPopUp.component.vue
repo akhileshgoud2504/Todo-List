@@ -34,11 +34,12 @@
               </svg>
             </div>
             <div class="mt-4">
-              <p class="mb-4 text-sm">
+              <p class="text-sm">
                 Are you sure you want to delete this task?
               </p>
+              <b class="mb-4 flex justify-center">{{ task.title }}</b>
             </div>
-            <div lass="mt-4 flex">
+            <div class="flex justify-between">
               <button
                 @click="toggle"
                 class="px-6 py-2 text-blue-800 border border-blue-600 rounded justify-start"
@@ -58,8 +59,7 @@
   <script>
    import { mapGetters } from 'vuex';
   export default {
-    props: ['taskindex'],
-    name: 'modal-popup',
+    props: ['task'],
     data(){
       return{
         isOpen: false
@@ -74,7 +74,7 @@
         },
         confirmDelete(){
           this.$store.commit('tooglePopUp', this.getPopUpValue);
-          this.$store.commit('deleteTask', this.index);
+          this.$store.commit('deleteTask', this.task.key);
         }
     },
     beforeUpdate(){

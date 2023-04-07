@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="w-full min-h-screen bg-blue-600 flex justify-center items-start pt-0 pb-0 pr-2 pl-2">
+  <div id="app" class="w-full min-h-screen bg-blue-600 flex justify-center items-start px-0 py-2">
     <HomeScreen />
   </div>
 </template>

@@ -38,13 +38,16 @@ export default new Vuex.Store({
       state.tasks.push(task);
     },
     completedTasks(state,data) {
-      Vue.set(state.tasks,data?.index,data?.task);
+      const index = state.tasks.findIndex((statetask)=> statetask.key === data.index)
+      Vue.set(state.tasks,index,data?.task);
     },
-    deleteTask(state,index) {
+    deleteTask(state,taskKey) {
+      const index = state.tasks.findIndex((statetask)=> statetask.key === taskKey)
       state.tasks.splice(index,1);
     },
     updateTask(state,data){
-      Vue.set(state.tasks,data?.index,data?.task);
+      const index = state.tasks.findIndex((statetask)=> statetask.key === data.index)
+      Vue.set(state.tasks,index,data?.task);
     },
     tooglePopUp(state,value){
       Vue.set(state.modelOptions,'isPopUpOpen',!value)
