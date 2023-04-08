@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import HomeScreen from './view/HomeScreen.vue';
+  import HomeScreen from '@/view/HomeScreen.vue';
 
   export default {
     components: {

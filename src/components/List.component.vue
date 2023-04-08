@@ -18,10 +18,10 @@
                         <td class="w-1/5 border border-solid border-chinesesilver">{{ task.demonstration }}</td>
                         <td class="w-1/5 border border-solid border-chinesesilver">{{ !task.dueDate ? '-' : moment(task.dueDate).format('MMMM Do YYYY, h:mm:ss a') }}</td>
                         <td class="flex justify-between">
-                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'completed')"><img class="w-5 h-5" src="../../assets/images/doubletick.png"/></div>
-                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'duplicate')"><img class="w-5 h-5"  src="../../assets/images/duplicate.png"/></div>
-                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'edit')"><img class="w-5 h-5" src="../../assets/images/edit.png" /></div>
-                            <div class="cursor-pointer" @click="taskcompleted(task,task.key,'delete')"><img class="w-5 h-5" src="../../assets/images/delete.png" /></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'completed')"><img class="w-5 h-5" src="@/assets/images/doubletick.png"/></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'duplicate')"><img class="w-5 h-5"  src="@/assets/images/duplicate.png"/></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'edit')"><img class="w-5 h-5" src="@/assets/images/edit.png" /></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task,task.key,'delete')"><img class="w-5 h-5" src="@/assets/images/delete.png" /></div>
                         </td>
                     </tr>
                 </tbody>
@@ -34,7 +34,7 @@
 
 <script>
 import moment from 'moment';
-import ModalPopUpComponent from '../ModelPopUpComponent/ModalPopUp.component.vue';
+import ModalPopUpComponent from '@/components/ModalPopUp.component.vue';
 import { storeGetters, isDueDateExpired } from '@/Utils';
 
 export default {

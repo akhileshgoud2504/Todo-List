@@ -22,9 +22,9 @@
 </template>
 
 <script>
-  import TodoInputFormComponent from '../ToDoInputComponent/TodoInputForm.component.vue';
-  import List from '../ListComponent/List.component.vue';
-  import { intialTaskData, storeGetters } from '../../Utils';
+  import TodoInputFormComponent from '@/components/ToDoInputComponent/TodoInputForm.component.vue';
+  import List from '@/components/List.component.vue';
+  import { intialTaskData, storeGetters } from '@/Utils';
 
   export default {
     components: {

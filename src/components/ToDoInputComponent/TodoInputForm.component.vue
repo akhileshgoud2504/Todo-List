@@ -59,7 +59,7 @@
   import 'vue2-datepicker/index.css';
   import moment from 'moment';
   import { disabledDateRange, disabledTimeRange, storeGetters, intialTaskData } from '@/Utils';
-  import {isFormFiledValid} from './TodoInputForm.validators';
+  import {isFormFiledValid} from '@/components/ToDoInputComponent/TodoInputForm.validators';
  
  export default {
    props: ['userData'],
