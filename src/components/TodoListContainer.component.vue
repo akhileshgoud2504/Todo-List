@@ -2,27 +2,27 @@
   <div>
     <p class="flex justify-center text-3xl">Task Manager</p>
     <todo-form :userData="user" @userChanged="user = $event" />
-    <div class="flex text-sm font-medium text-center text-gray-500 dark:text-gray-400 py-4"  v-if="totalTasks.length">
+    <div class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 py-4"  v-if="totalTasks.length">
       <p :class="this.selectedTab === 'pending' ? this.selectedTabStyles : this.unSelectedTabStyles"  @click="setSelectedTab('pending')">
-        <b>Pending Tasks:</b> {{ pendingTasks.length }}
+        <b class="2xl:text-3xl">Pending Tasks:</b> {{ pendingTasks.length }}
       </p>
       <p :class="this.selectedTab === 'completed' ? this.selectedTabStyles : this.unSelectedTabStyles" @click="setSelectedTab('completed')">
-        <b>Completed Tasks:</b> {{ completedTasksLength.length }}
+        <b class="2xl:text-3xl">Completed Tasks:</b> {{ completedTasksLength.length }}
       </p>
       <p :class="this.selectedTab === 'total' ? this.selectedTabStyles : this.unSelectedTabStyles"  @click="setSelectedTab('total')">
-        <b>Total Tasks:</b> {{ totalTasks.length }}
+        <b class="2xl:text-3xl">Total Tasks:</b> {{ totalTasks.length }}
       </p>
       <p :class="this.selectedTab === 'duplicated' ? this.selectedTabStyles : this.unSelectedTabStyles" @click="setSelectedTab('duplicated')">
-        <b>Duplicated Tasks:</b> {{ duplicateTask.length }}
+        <b class="2xl:text-3xl">Duplicated Tasks:</b> {{ duplicateTask.length }}
       </p>
     </div>
-    <p v-if="!totalTasks.length">No task added. Please add a task</p>
+    <p v-if="!totalTasks.length" class="flex justify-center 2xl:text-3xl">No task added. Please add a task</p>
       <list :userData="user" :selectedTab="selectedTab" @userChanged="user = $event" />
   </div>
 </template>
 
 <script>
-  import TodoInputFormComponent from '@/components/ToDoInputComponent/TodoInputForm.component.vue';
+  import TodoInputFormComponent from '@/components/TodoInputForm.component.vue';
   import List from '@/components/List.component.vue';
   import { intialTaskData, storeGetters } from '@/Utils';
 

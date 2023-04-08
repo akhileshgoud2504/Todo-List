@@ -1,31 +1,34 @@
 <template>
     <div>
-        <div v-if="getTasks().length">
-            <table class="table w-full table-auto border border-solid border-chinesesilver border-collapse">
+        <div v-if="getTasks().length" class="w-full overflow-auto">
+            <table class="table border border-solid border-chinesesilver border-collapse">
                 <thead>
-                    <tr class="w-full border border-solid border-chinesesilver">
-                        <th class="w-1/5 border border-solid border-chinesesilver">Sl.no</th>
-                        <th class="w-1/5 border border-solid border-chinesesilver">Title</th>
-                        <th class="w-1/5 border border-solid border-chinesesilver">Description</th>
-                        <th class="w-1/5 border border-solid border-chinesesilver">Due Date</th>
-                        <th class="w-1/5 border border-solid border-chinesesilver"></th>
+                    <tr class="border border-solid border-chinesesilver">
+                        <th class="border border-solid border-chinesesilver 2xl:text-3xl">Sl.no</th>
+                        <th class="border border-solid border-chinesesilver 2xl:text-3xl">Title</th>
+                        <th class="border border-solid border-chinesesilver 2xl:text-3xl">Description</th>
+                        <th class="border border-solid border-chinesesilver 2xl:text-3xl">Due Date</th>
+                        <th class="border border-solid border-chinesesilver 2xl:text-3xl">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr :class="getRowClass(task)" v-for="(task, index) in getTasks()" :key="index">
-                        <td class="w-1/5 border border-solid border-chinesesilver">{{ index + 1 }}</td>
-                        <td class="w-1/5 border border-solid border-chinesesilver">{{ task.title }}</td>
-                        <td class="w-1/5 border border-solid border-chinesesilver">{{ task.demonstration }}</td>
-                        <td class="w-1/5 border border-solid border-chinesesilver">{{ !task.dueDate ? '-' : moment(task.dueDate).format('MMMM Do YYYY, h:mm:ss a') }}</td>
-                        <td class="flex justify-between">
-                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'completed')"><img class="w-5 h-5" src="@/assets/images/doubletick.png"/></div>
-                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'duplicate')"><img class="w-5 h-5"  src="@/assets/images/duplicate.png"/></div>
-                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'edit')"><img class="w-5 h-5" src="@/assets/images/edit.png" /></div>
-                            <div class="cursor-pointer" @click="taskcompleted(task,task.key,'delete')"><img class="w-5 h-5" src="@/assets/images/delete.png" /></div>
+                        <td class="border border-solid border-chinesesilver 2xl:text-3xl">{{ index + 1 }}</td>
+                        <td class="border border-solid border-chinesesilver 2xl:text-3xl">{{ task.title }}</td>
+                        <td class="border border-solid border-chinesesilver 2xl:text-3xl">{{ task.demonstration }}</td>
+                        <td class="border border-solid border-chinesesilver 2xl:text-3xl">{{ !task.dueDate ? '-' : moment(task.dueDate).format('MMMM Do YYYY, h:mm:ss a') }}</td>
+                        <td class="justify-between">
+                            <div class="flex">
+                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'completed')"><img class="w-10 min-w-full	" src="@/assets/images/doubletick.png"/></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'duplicate')"><img class="w-10 min-w-full	"  src="@/assets/images/duplicate.png"/></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task, task.key, 'edit')"><img class="w-10 min-w-full	" src="@/assets/images/edit.png" /></div>
+                            <div class="cursor-pointer" @click="taskcompleted(task,task.key,'delete')"><img class="w-10 min-w-full	" src="@/assets/images/delete.png" /></div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            
         </div>
         <ModalPopUpComponent :task="task"/>
     </div>
